@@ -1,4 +1,4 @@
-module github.com/beego/beego/v2
+module github.com/veetine/beego/v2
 
 go 1.14
 
@@ -38,5 +38,3 @@ require (
 	google.golang.org/grpc v1.38.0
 	gopkg.in/yaml.v2 v2.4.0
 )
-
-replace github.com/beego/beego v2.0.1 => github.com/veetine/beego v2.0.1
