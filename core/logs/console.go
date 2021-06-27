@@ -61,7 +61,7 @@ func (c *consoleWriter) Format(lm *LogMsg) string {
 	}
 	h, _, _ := formatTimeHeader(lm.When)
 	bytes := append(append(h, msg...))
-	
+
 	return string(bytes)
 }
 
