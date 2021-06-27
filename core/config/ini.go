@@ -518,7 +518,7 @@ func init() {
 
 	err := InitGlobalInstance("ini", "conf/app.conf")
 	if err != nil {
-		
+
 		//logs.Debug("init global config instance failed. If you donot use this, just ignore it. ", err)
 	}
 }
