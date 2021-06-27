@@ -94,7 +94,7 @@ type Logger interface {
 
 var (
 	adapters    = make(map[string]newLoggerFunc)
-	levelPrefix = [LevelDebug + 1]string{"[M]", "[A]", "[C]", "[E]", "[W]", "[N]", "[I]", "[D]"}
+	levelPrefix = [LevelDebug + 1]string{"[M]", "[A]", "[C]", "[ERROR]", "[WARN]", "[NOTICE]", "[INFO]", "[DEBUG]"}
 )
 
 // Register makes a log provide available by the provided name.

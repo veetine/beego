@@ -17,11 +17,9 @@ package logs
 import (
 	"encoding/json"
 	"fmt"
-	"os"
-	"strings"
-
 	"github.com/pkg/errors"
 	"github.com/shiena/ansicolor"
+	"os"
 )
 
 // brush is a color join function
@@ -59,10 +57,10 @@ type consoleWriter struct {
 func (c *consoleWriter) Format(lm *LogMsg) string {
 	msg := lm.OldStyleFormat()
 	if c.Colorful {
-		msg = strings.Replace(msg, levelPrefix[lm.Level], colors[lm.Level](levelPrefix[lm.Level]), 1)
+		msg = colors[lm.Level](msg)
 	}
 	h, _, _ := formatTimeHeader(lm.When)
-	bytes := append(append(h, msg...), '\n')
+	bytes := append(append(h, msg...))
 	return string(bytes)
 }
 

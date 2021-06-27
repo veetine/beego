@@ -16,7 +16,7 @@ package logs
 
 import (
 	"fmt"
-	"path"
+	"strings"
 	"time"
 )
 
@@ -43,11 +43,12 @@ func (lm *LogMsg) OldStyleFormat() string {
 	msg = lm.Prefix + " " + msg
 
 	if lm.enableFuncCallDepth {
-		filePath := lm.FilePath
-		if !lm.enableFullFilePath {
-			_, filePath = path.Split(filePath)
+		var filename string
+		array := strings.Split(lm.FilePath, "/")
+		if len(array) >= 2 {
+			filename = array[len(array)-2] + "/" + array[len(array)-1]
 		}
-		msg = fmt.Sprintf("[%s:%d] %s", filePath, lm.LineNumber, msg)
+		msg = fmt.Sprintf("[%s:%d] %s", filename, lm.LineNumber, msg)
 	}
 
 	msg = levelPrefix[lm.Level] + " " + msg
