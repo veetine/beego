@@ -136,6 +136,7 @@ type nameLogger struct {
 	name string
 }
 
+
 var logMsgPool *sync.Pool
 
 // NewLogger returns a new BeeLogger.
